@@ -11,7 +11,7 @@ cd day_1
 cargo run
 ```
 
-*Note:* The solutions are not necessarily optimized for performance or readability, but rather for completing the challenge successfully.
+**Note:** The solutions are not necessarily optimized for performance or readability, but rather for completing the challenge successfully.
 
 ## License
 
