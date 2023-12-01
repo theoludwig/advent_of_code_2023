@@ -2,16 +2,15 @@
 
 ## About
 
-This repository contains my solutions to the [Advent of Code 2023](https://adventofcode.com/2023) challenges using the [Rust Programming Language](https://www.rust-lang.org/) v1.74.0.
-
-To run a solution (e.g. Day 1):
+This repository contains my solutions for the [Advent of Code 2023](https://adventofcode.com/2023) challenges implemented in the [Rust Programming Language](https://www.rust-lang.org/) v1.74.0.
 
 ```sh
-cd day_1
-cargo run
-```
+# Run the tests (input examples)
+cargo test
 
-**Note:** The solutions are not necessarily optimized for performance or readability, but rather for completing the challenge successfully.
+# Run a specific day's challenge (e.g. Day 1)
+cargo run --package day_1
+```
 
 ## License
 

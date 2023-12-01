@@ -10,7 +10,7 @@ fn part_1(input: &str) -> i32 {
             let first_digit = characters_digits.first().unwrap_or(&'0').to_owned();
             let last_digit = characters_digits.last().unwrap_or(&'0').to_owned();
             let number = format!("{}{}", first_digit, last_digit);
-            let number: i32 = number.parse().expect("Should parse as a number.");
+            let number: i32 = number.parse().expect("Should parse as a i32.");
             number
         })
         .sum()
@@ -64,15 +64,23 @@ fn part_2(input: &str) -> i32 {
 }
 
 fn main() {
-    let input_example1 = include_str!("../input_example_1.txt");
-    let input_example2 = include_str!("../input_example_2.txt");
     let input = include_str!("../input.txt");
-
-    println!("Answer Part 1 (example1): {}", part_1(input_example1));
-    println!("Answer Part 1 (example2): {}", part_1(input_example2));
+    println!("- Day 1: Trebuchet?! -");
     println!("Answer Part 1: {}", part_1(input));
-
-    println!("Answer Part 2 (example1): {}", part_2(input_example1));
-    println!("Answer Part 2 (example2): {}", part_2(input_example2));
     println!("Answer Part 2: {}", part_2(input));
+}
+
+#[cfg(test)]
+mod day_1_tests {
+    use super::*;
+
+    #[test]
+    fn test_part_1_example() {
+        assert_eq!(142, part_1(include_str!("../input_example_1.txt")));
+    }
+
+    #[test]
+    fn test_part_2_example() {
+        assert_eq!(281, part_2(include_str!("../input_example_2.txt")));
+    }
 }
