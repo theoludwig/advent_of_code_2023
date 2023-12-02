@@ -1,18 +1,8 @@
-fn part_1() -> i32 {
-    142
-}
+use day_2::{part_1, part_2};
 
 fn main() {
-    println!("- Day 2: Title -");
-    println!("Answer Part 1: {}", part_1());
-}
-
-#[cfg(test)]
-mod day_2_tests {
-    use super::*;
-
-    #[test]
-    fn test_part_1_example() {
-        assert_eq!(142, part_1());
-    }
+    let input = include_str!("../input.txt");
+    println!("- Day 2: Cube Conundrum -");
+    println!("Answer Part 1: {}", part_1(input));
+    println!("Answer Part 2: {}", part_2(input));
 }
