@@ -41,12 +41,6 @@ So, in this example, the Elf's pile of scratchcards is worth **`13`** points.
 
 Take a seat in the large pile of colorful cards. **How many points are they worth in total?**
 
-To begin, [get your puzzle input](./input.txt).
-
-Your puzzle answer was `24160`.
-
-**The first half of this puzzle is complete! It provides one gold star: `*`.**
-
 ## Instructions - Part 2
 
 Just as you're about to report your findings to the Elf, one of you realizes that the rules have actually been printed on the back of every card this whole time.
@@ -79,7 +73,3 @@ Card 6: 31 18 13 56 72 | 74 77 10 23 35 67 36 11
 Once all of the originals and copies have been processed, you end up with 1 instance of card 1, **`2`** instances of card 2, **`4`** instances of card 3, **`8`** instances of card 4, **`14`** instances of card 5, and **`1`** instance of card 6. In total, this example pile of scratchcards causes you to ultimately have **`30`** scratchcards!
 
 Process all of the original and copied scratchcards until no more scratchcards are won. Including the original set of scratchcards, **how many total scratchcards do you end up with**?
-
-Your puzzle answer was `5659035`.
-
-**Both parts of this puzzle are complete! They provide two gold stars: `**`.**

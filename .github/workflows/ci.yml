@@ -1,24 +1,26 @@
 name: "ci"
 
 on:
-    push:
-        branches: ["main"]
-    pull_request:
-        branches: ["main"]
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
 
 env:
-    CARGO_TERM_COLOR: "always"
+  CARGO_TERM_COLOR: "always"
 
 jobs:
-    ci:
-        runs-on: "ubuntu-latest"
+  ci:
+    runs-on: "ubuntu-latest"
 
-        steps:
-            - uses: "actions/checkout@v4"
+    steps:
+      - uses: "actions/checkout@v4"
+      - uses: "dtolnay/rust-toolchain@stable"
+        with:
+          components: "clippy, rustfmt"
+      - run: "rustc --version"
 
-            - run: "rustc --version"
-
-            - run: "cargo build --verbose"
-            - run: "cargo test --verbose"
-            - run: "cargo clippy --verbose -- -D warnings"
-            - run: "cargo fmt -- --check"
+      - run: "cargo build --verbose"
+      - run: "cargo test --verbose"
+      - run: "cargo clippy --verbose -- -D warnings"
+      - run: "cargo fmt -- --check"

@@ -76,4 +76,14 @@ mod day_1_tests {
     fn test_part_2_example() {
         assert_eq!(part_2(include_str!("../input_example_2.txt")), 281);
     }
+
+    #[test]
+    fn test_part_1() {
+        assert_eq!(part_1(include_str!("../input.txt")), 55130);
+    }
+
+    #[test]
+    fn test_part_2() {
+        assert_eq!(part_2(include_str!("../input.txt")), 54985);
+    }
 }
