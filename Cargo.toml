@@ -1,8 +1,9 @@
 [workspace]
 members = [
-    "day_1",
-    "day_2",
-    "day_3",
-    "day_4",
+    "day_*",
 ]
 resolver = "2"
+
+[workspace.dependencies]
+rayon = { version = "=1.8.0" }
+indicatif = { version = "=0.17.7", features = ["rayon"] }
