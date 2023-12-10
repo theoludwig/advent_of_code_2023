@@ -1,9 +1,8 @@
 [workspace]
-members = [
-    "day_*",
-]
+members = ["day_*"]
 resolver = "2"
 
 [workspace.dependencies]
 rayon = { version = "=1.8.0" }
 indicatif = { version = "=0.17.7", features = ["rayon"] }
+array-init = { version = "=2.1.0" }
