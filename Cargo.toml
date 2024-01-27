@@ -6,7 +6,7 @@ resolver = "2"
 name = "advent_of_code_2023"
 version = "1.0.0"
 edition = "2021"
-rust-version = "1.70.0"
+rust-version = "1.74.0"
 
 [workspace.dependencies]
 rayon = { version = "=1.8.1" }

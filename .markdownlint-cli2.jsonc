@@ -1,6 +1,8 @@
 {
     "config": {
         "default": true,
+        "no-inline-html": false,
+        "no-duplicate-heading": false,
 
         /* Disables rules that may conflict with Prettier */
         /* Reference: https://github.com/DavidAnson/markdownlint/blob/main/style/prettier.json */
@@ -25,7 +27,7 @@
         "no-trailing-spaces": false,
         "ol-prefix": false,
         "strong-style": false,
-        "ul-indent": false
+        "ul-indent": false,
     },
-    "globs": ["**/*.md"]
+    "globs": ["**/*.md"],
 }
