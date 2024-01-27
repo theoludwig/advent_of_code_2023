@@ -20,12 +20,23 @@
 
 #### Rust Toolchain
 
-The current Minimum Supported [Rust](https://www.rust-lang.org/) Version (MSRV) is **1.74.0**.
+The current Minimum Supported [Rust](https://www.rust-lang.org/) Version (MSRV) is **v1.74.0**.
 
 The project is **tested** against the following Rust versions:
 
 - **Minimum Supported Rust Version (MSRV): v1.74.0**
 - **Latest Stable Version**
+
+#### External Linting Tools (optional)
+
+**External linting tools** are used to ensure a consistent code style and commit message format. They are **used in the Continuous Integration (CI)** pipeline and **can be optionally used locally**.
+
+They have to be installed using [Node.js](https://nodejs.org/) >= v20.0.0 and [npm](https://www.npmjs.com/) >= v10.0.0.
+
+- [editorconfig-checker](https://editorconfig-checker.github.io/) (`npm install --global editorconfig-checker@5.1.2`)
+- [Prettier](https://prettier.io/) v3.2.4 (`npm install --global prettier@3.2.4`)
+- [markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2) v0.12.1 (`npm install --global markdownlint-cli2@0.12.1`)
+- [commitlint](https://commitlint.js.org/#/) v18.6.0 (`npm install --global @commitlint/cli@18.6.0 @commitlint/config-conventional@18.6.0`)
 
 ### Usage
 
@@ -33,11 +44,17 @@ The project is **tested** against the following Rust versions:
 # Run a specific day's challenge (e.g. Day 1)
 cargo run --package day_1
 
-# Build, Lint, and Test
+# Build, Lint, and Test Usage
 cargo build
 cargo test
 cargo clippy --verbose -- -D warnings
 cargo fmt -- --check
+
+# External Linting Tools Usage (optional)
+editorconfig-checker
+prettier . --check
+markdownlint-cli2
+echo 'chore: try commitlint' | commitlint
 ```
 
 ## 💡 Contributing
