@@ -2,7 +2,13 @@
 members = ["day_*"]
 resolver = "2"
 
+[workspace.package]
+name = "advent_of_code_2023"
+version = "1.0.0"
+edition = "2021"
+rust-version = "1.70.0"
+
 [workspace.dependencies]
-rayon = { version = "=1.8.0" }
+rayon = { version = "=1.8.1" }
 indicatif = { version = "=0.17.7", features = ["rayon"] }
 array-init = { version = "=2.1.0" }

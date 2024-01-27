@@ -12,15 +12,39 @@ env:
 jobs:
   ci:
     runs-on: "ubuntu-latest"
-
+    strategy:
+      matrix:
+        rust-version: ["1.70.0", "stable"]
     steps:
-      - uses: "actions/checkout@v4"
-      - uses: "dtolnay/rust-toolchain@stable"
-        with:
-          components: "clippy, rustfmt"
-      - run: "rustc --version"
+      - uses: "actions/checkout@v4.1.1"
 
+      - uses: "dtolnay/rust-toolchain@master"
+        with:
+          toolchain: "${{ matrix.rust-version }}"
+          components: "clippy, rustfmt"
+
+      - run: "rustc --version"
       - run: "cargo build --verbose"
       - run: "cargo test --verbose"
       - run: "cargo clippy --verbose -- -D warnings"
       - run: "cargo fmt -- --check"
+
+  lint-markdown:
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: "actions/checkout@v4.1.1"
+
+      - uses: "DavidAnson/markdownlint-cli2-action@v15.0.0"
+        with:
+          config: ".markdownlint-cli2.jsonc"
+          globs: "**/*.md"
+
+  lint-commit:
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: "actions/checkout@v4.1.1"
+
+      - uses: "wagoid/commitlint-github-action@v5.4.5"
+        with:
+          configFile: ".commitlintrc.json"
+          failOnWarnings: true
