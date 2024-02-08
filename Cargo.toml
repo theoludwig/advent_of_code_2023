@@ -3,7 +3,7 @@ members = ["day_*"]
 resolver = "2"
 
 [workspace.package]
-name = "advent_of_code_2023"
+# name = "advent_of_code_2023"
 version = "1.0.0"
 edition = "2021"
 rust-version = "1.74.0"

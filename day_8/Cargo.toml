@@ -1,0 +1,5 @@
+[package]
+name = "day_8"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
