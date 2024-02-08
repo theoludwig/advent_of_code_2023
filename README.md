@@ -33,10 +33,9 @@ The project is **tested** against the following Rust versions:
 
 They have to be installed using [Node.js](https://nodejs.org/) >= v20.0.0 and [npm](https://www.npmjs.com/) >= v10.0.0.
 
-- [editorconfig-checker](https://editorconfig-checker.github.io/) (`npm install --global editorconfig-checker@5.1.2`)
-- [Prettier](https://prettier.io/) v3.2.4 (`npm install --global prettier@3.2.4`)
-- [markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2) v0.12.1 (`npm install --global markdownlint-cli2@0.12.1`)
-- [commitlint](https://commitlint.js.org/#/) v18.6.0 (`npm install --global @commitlint/cli@18.6.0 @commitlint/config-conventional@18.6.0`)
+```sh
+npm clean-install
+```
 
 ### Usage
 
@@ -51,10 +50,10 @@ cargo clippy --verbose -- -D warnings
 cargo fmt -- --check
 
 # External Linting Tools Usage (optional)
-editorconfig-checker
-prettier . --check
-markdownlint-cli2
-echo 'chore: try commitlint' | commitlint
+echo 'chore: try commitlint' | npm run lint:commit
+npm run lint:editorconfig
+npm run lint:markdown
+npm run lint:prettier
 ```
 
 ## 💡 Contributing

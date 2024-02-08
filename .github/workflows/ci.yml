@@ -29,26 +29,6 @@ jobs:
       - run: "cargo clippy --verbose -- -D warnings"
       - run: "cargo fmt -- --check"
 
-  lint-markdown:
-    runs-on: "ubuntu-latest"
-    steps:
-      - uses: "actions/checkout@v4.1.1"
-
-      - uses: "DavidAnson/markdownlint-cli2-action@v15.0.0"
-        with:
-          config: ".markdownlint-cli2.jsonc"
-          globs: "**/*.md"
-
-  lint-commit:
-    runs-on: "ubuntu-latest"
-    steps:
-      - uses: "actions/checkout@v4.1.1"
-
-      - uses: "wagoid/commitlint-github-action@v5.4.5"
-        with:
-          configFile: ".commitlintrc.json"
-          failOnWarnings: true
-
   lint-general:
     runs-on: "ubuntu-latest"
     steps:
@@ -57,10 +37,11 @@ jobs:
       - name: "Setup Node.js"
         uses: "actions/setup-node@v4.0.1"
         with:
-          node-version: "20.11.0"
+          node-version: "20.x"
 
-      - run: "npm install --global editorconfig-checker@5.1.2"
-      - run: "npm install --global prettier@3.2.4"
+      - run: "npm clean-install"
 
-      - run: "editorconfig-checker"
-      - run: "prettier . --check"
+      - run: 'npm run lint:commit -- --to "${{ github.sha }}"'
+      - run: "npm run lint:editorconfig"
+      - run: "npm run lint:markdown"
+      - run: "npm run lint:prettier"
