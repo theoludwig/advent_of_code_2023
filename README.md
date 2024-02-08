@@ -14,6 +14,17 @@
   <a href="https://conventionalcommits.org"><img src="https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg" alt="Conventional Commits" /></a>
 </p>
 
+## Days Progress
+
+- [Day 1 (`**`)](./day_1)
+- [Day 2 (`**`)](./day_2)
+- [Day 3 (`**`)](./day_3)
+- [Day 4 (`**`)](./day_4)
+- [Day 5 (`**`)](./day_5)
+- [Day 6 (`**`)](./day_6)
+- [Day 7 (`*`)](./day_7)
+- [Day 8 (`*`)](./day_8)
+
 ## Getting Started
 
 ### Prerequisites
@@ -29,7 +40,7 @@ The project is **tested** against the following Rust versions:
 
 #### External Linting Tools (optional)
 
-**External linting tools** are used to ensure a consistent code style and commit message format. They are **used in the Continuous Integration (CI)** pipeline and **can be optionally used locally**.
+**External linting tools** are used to ensure a consistent code style (external to Rust) and commit message format. They are **used in the Continuous Integration (CI)** pipeline and **can be optionally used locally**.
 
 They have to be installed using [Node.js](https://nodejs.org/) >= v20.0.0 and [npm](https://www.npmjs.com/) >= v10.0.0.
 
