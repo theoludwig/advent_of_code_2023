@@ -4,7 +4,7 @@ use std::collections::HashMap;
 #[derive(Debug, Default, PartialEq, Eq, Clone)]
 pub struct DesertMap {
     pub directions: Vec<HorizontalDirection>,
-    pub nodes: HashMap<String, (String, String)>,
+    pub nodes: HashMap<String, [String; 2]>,
 }
 
 impl FromStr for DesertMap {
@@ -33,9 +33,9 @@ impl FromStr for DesertMap {
     /// let expected_result = DesertMap {
     ///     directions: vec![HorizontalDirection::Right, HorizontalDirection::Left],
     ///     nodes: HashMap::from([
-    ///         (String::from("AAA"), (String::from("BBB"), String::from("CCC"))),
-    ///         (String::from("BBB"), (String::from("DDD"), String::from("EEE"))),
-    ///         (String::from("CCC"), (String::from("ZZZ"), String::from("GGG"))),
+    ///         (String::from("AAA"), [String::from("BBB"), String::from("CCC")]),
+    ///         (String::from("BBB"), [String::from("DDD"), String::from("EEE")]),
+    ///         (String::from("CCC"), [String::from("ZZZ"), String::from("GGG")]),
     ///    ])
     /// };
     ///
@@ -58,10 +58,10 @@ impl FromStr for DesertMap {
                 .unwrap_or_default()
                 .replace(['(', ')'], "");
             let mut values_line = values_line.split(", ");
-            let value = (
+            let value = [
                 values_line.next().unwrap_or_default().to_string(),
                 values_line.next().unwrap_or_default().to_string(),
-            );
+            ];
             result.nodes.insert(key.to_string(), value);
         }
         Ok(result)
@@ -71,8 +71,14 @@ impl FromStr for DesertMap {
 #[derive(Debug, Default, PartialEq, Eq, Copy, Clone)]
 pub enum HorizontalDirection {
     #[default]
-    Left,
-    Right,
+    Left = 0,
+    Right = 1,
+}
+
+impl HorizontalDirection {
+    pub const fn index(&self) -> usize {
+        *self as usize
+    }
 }
 
 impl From<char> for HorizontalDirection {
@@ -89,39 +95,21 @@ const KEY_START: &str = "AAA";
 const KEY_END: &str = "ZZZ";
 
 pub fn part_1(input: &str) -> usize {
-    let desert_map = DesertMap::from_str(input).unwrap_or_default();
+    let mut desert_map = DesertMap::from_str(input).unwrap_or_default();
     let mut steps = 0;
     let mut current_step_key = KEY_START.to_string();
-    let mut current_direction_index: usize = 0;
-
     while current_step_key != KEY_END {
-        let current_direction = desert_map
-            .directions
-            .get(current_direction_index)
-            .cloned()
-            .unwrap_or_else(|| {
-                current_direction_index = 0;
-                desert_map
-                    .directions
-                    .get(current_direction_index)
-                    .cloned()
-                    .unwrap_or_default()
-            });
-
-        let current_step_value = desert_map
-            .nodes
-            .get(&current_step_key)
-            .cloned()
-            .unwrap_or_default();
-        current_step_key = match current_direction {
-            HorizontalDirection::Left => current_step_value.0.clone(),
-            HorizontalDirection::Right => current_step_value.1.clone(),
-        };
-
-        current_direction_index += 1;
+        let direction_index = steps % desert_map.directions.len();
+        let current_direction = &desert_map.directions[direction_index];
+        let current_step_value =
+            if let Some(step_value) = desert_map.nodes.get_mut(&current_step_key) {
+                step_value
+            } else {
+                break;
+            };
+        current_step_key = current_step_value[current_direction.index()].to_string();
         steps += 1;
     }
-
     steps
 }
 
