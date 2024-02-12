@@ -113,6 +113,35 @@ pub fn part_1(input: &str) -> usize {
     steps
 }
 
+pub fn part_2(input: &str) -> usize {
+    let desert_map = DesertMap::from_str(input).unwrap_or_default();
+    let mut current_step_keys: Vec<String> = desert_map
+        .nodes
+        .keys()
+        .filter(|key| key.ends_with('A'))
+        .map(|key| key.to_string())
+        .collect();
+    let mut steps = 0;
+    while !current_step_keys
+        .iter()
+        .all(|step_key| step_key.ends_with('Z'))
+    {
+        let direction_index = steps % desert_map.directions.len();
+        let current_direction = &desert_map.directions[direction_index];
+        for current_step_key in current_step_keys.iter_mut() {
+            let current_step_value =
+                if let Some(step_value) = desert_map.nodes.get(current_step_key) {
+                    step_value
+                } else {
+                    break;
+                };
+            *current_step_key = current_step_value[current_direction.index()].to_string();
+        }
+        steps += 1;
+    }
+    steps
+}
+
 #[cfg(test)]
 mod day_8_tests {
     use super::*;
@@ -130,5 +159,10 @@ mod day_8_tests {
     #[test]
     fn test_part_1() {
         assert_eq!(part_1(include_str!("../input.txt")), 15871);
+    }
+
+    #[test]
+    fn test_part_2_example_3() {
+        assert_eq!(part_2(include_str!("../input_example_3.txt")), 6);
     }
 }
