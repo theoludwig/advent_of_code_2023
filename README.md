@@ -6,6 +6,10 @@
 
 ## Days Progress
 
+### [2024](./advent_2024)
+
+- [Day 1 (`**`)](./advent_2024/puzzle_2024_day_1)
+
 ### [2023](./advent_2023)
 
 - [Day 1 (`**`)](./advent_2023/puzzle_2023_day_1)
@@ -29,6 +33,10 @@ The project is **tested** against the following [Rust](https://www.rust-lang.org
 ```sh
 # Run a specific day's challenge (e.g. Day 1 of 2023)
 cargo run --package puzzle_2023_day_1
+
+# Create a new day's challenge (e.g. Day 1 of 2023)
+cd advent_2023
+cargo new puzzle_2023_day_1
 
 # Build, Lint, and Test Usage
 cargo build

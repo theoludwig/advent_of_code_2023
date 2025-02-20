@@ -64,7 +64,7 @@ pub fn part_2(input: &str) -> usize {
 }
 
 #[cfg(test)]
-mod day_1_tests {
+mod puzzle_2023_day_1_tests {
     use super::*;
 
     #[test]

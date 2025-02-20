@@ -176,6 +176,10 @@ name = "puzzle_2023_day_8"
 version = "1.0.0"
 
 [[package]]
+name = "puzzle_2024_day_1"
+version = "1.0.0"
+
+[[package]]
 name = "quote"
 version = "1.0.38"
 source = "registry+https://github.com/rust-lang/crates.io-index"
