@@ -9,6 +9,7 @@
 ### [2024](./advent_2024)
 
 - [Day 1 (`**`)](./advent_2024/puzzle_2024_day_1)
+- [Day 2 (`**`)](./advent_2024/puzzle_2024_day_2)
 
 ### [2023](./advent_2023)
 
