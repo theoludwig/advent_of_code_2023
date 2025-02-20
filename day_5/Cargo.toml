@@ -1,9 +1,0 @@
-[package]
-name = "day_5"
-version.workspace = true
-edition.workspace = true
-rust-version.workspace = true
-
-[dependencies]
-rayon = { workspace = true }
-indicatif = { workspace = true }

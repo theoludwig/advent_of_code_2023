@@ -1,8 +1,0 @@
-[package]
-name = "day_7"
-version.workspace = true
-edition.workspace = true
-rust-version.workspace = true
-
-[dependencies]
-array-init = { workspace = true }

@@ -1,9 +1,0 @@
-{
-  "recommendations": [
-    "editorconfig.editorconfig",
-    "esbenp.prettier-vscode",
-    "davidanson.vscode-markdownlint",
-    "rust-lang.rust-analyzer",
-    "tamasfe.even-better-toml"
-  ]
-}

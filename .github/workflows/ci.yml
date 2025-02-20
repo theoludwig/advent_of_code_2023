@@ -11,12 +11,13 @@ env:
 
 jobs:
   ci:
+    timeout-minutes: 30
     runs-on: "ubuntu-latest"
     strategy:
       matrix:
-        rust-version: ["1.74.0", "stable"]
+        rust-version: ["1.84.1", "stable"]
     steps:
-      - uses: "actions/checkout@v4.1.1"
+      - uses: "actions/checkout@v4.2.2"
 
       - uses: "dtolnay/rust-toolchain@master"
         with:
@@ -28,20 +29,3 @@ jobs:
       - run: "cargo test --verbose"
       - run: "cargo clippy --verbose -- -D warnings"
       - run: "cargo fmt -- --check"
-
-  lint-general:
-    runs-on: "ubuntu-latest"
-    steps:
-      - uses: "actions/checkout@v4.1.1"
-
-      - name: "Setup Node.js"
-        uses: "actions/setup-node@v4.0.1"
-        with:
-          node-version: "20.x"
-
-      - run: "npm clean-install"
-
-      - run: 'npm run lint:commit -- --to "${{ github.sha }}"'
-      - run: "npm run lint:editorconfig"
-      - run: "npm run lint:markdown"
-      - run: "npm run lint:prettier"

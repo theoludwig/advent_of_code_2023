@@ -1,14 +1,14 @@
 [workspace]
-members = ["day_*"]
+members = ["advent_*/puzzle_*"]
 resolver = "2"
 
 [workspace.package]
-# name = "advent_of_code_2023"
+# name = "advent_of_code"
 version = "1.0.0"
 edition = "2021"
-rust-version = "1.74.0"
+rust-version = "1.84.1"
 
 [workspace.dependencies]
-rayon = { version = "=1.8.1" }
-indicatif = { version = "=0.17.7", features = ["rayon"] }
+rayon = { version = "=1.10.0" }
+indicatif = { version = "=0.17.11", features = ["rayon"] }
 array-init = { version = "=2.1.0" }
